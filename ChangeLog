@@ -1,0 +1,90 @@
+2001-08-20  John Foderaro  <jkf@tiger.franz.com>
+
+	* imap.cl (parse-mail-header): fix parse when a #\return was found 
+		in the header. [bug11124]
+
+*******************************************************************************
+merge from trunk to acl61 branch
+command: ../../join.sh trunk acl61 trunk_to_acl61_merge1 imap
+*******************************************************************************
+
+2001-08-10  John Foderaro  <jkf@tiger.franz.com>
+
+	* imap.cl - fix problems of too many #\returns in the header
+
+2001-06-26  John Foderaro  <jkf@tiger.franz.com>
+
+	*  imap.cl - fix typo in exported identifier
+
+2001-05-11  John Foderaro  <jkf@tiger.franz.com>
+
+	* smtp.cl: add test-email-address function to check to see
+	    if an email address can be determined to be bogus without
+	    sending a letter.
+
+2001-05-02  John Foderaro  <jkf@tiger.franz.com>
+1.8
+	* imap will signal a :response-too-large error if it encounter
+	 a letter it can't store in a lisp array.
+	
+2000-06-08    <jkf@CROW>
+1.7
+	* imap.cl: add parse-mail-header function to return mail headers
+	  as an assoc list.
+
+2000-06-06  John Foderaro  <jkf@tiger.franz.com>
+1.6
+	* imap.cl: fix header parsing bug where it go into a loop
+	  when encountering a blank header.
+
+Fri May 26 22:52:42 PST 2000  Duane Rettig  <duane@beta>
+
+	* makefile: set SHELL variable
+
+2000-04-26  John Foderaro  <jkf@tiger.franz.com>
+
+	* package changed from post-office to net.post-office
+	  the po nickname was removed.
+	 
+
+2000-04-21  John Foderaro  <jkf@tiger.franz.com>
+versio 1.4
+	* imap.cl: added pop commands unique-id and top-lines
+	    plus make-envelope-from-text
+
+	* imap.html - update document
+	
+
+1999-11-29  John Foderaro  <jkf@tiger.franz.com>
+version 1.3
+	* imap.cl - fixed bug where extra ^b's ended up in strings
+	* imap.html - fixed ref to wrong function
+
+1999-10-27  John Foderaro  <jkf@tiger.franz.com>
+version 1.2
+	
+	* imap.cl - add condtions
+	* imap.html - document conditions
+	* t-imap.cl - fix test suite
+	
+
+1999-09-29  John Foderaro  <jkf@tiger.franz.com>
+version 1.1
+	
+	* imap.html - document send-letter, send-smtp 
+	* smtp.cl - add this to the imap module
+	* t-imap.cl - adjust for the change in package
+	
+	  
+
+1999-09-27  John Foderaro  <jkf@tiger.franz.com>
+version 1.0
+	* start ChangeLog.
+	* imap.cl - the code for the imap and pop interface
+	* imap.html - the documentation
+	* t-imap.cl - the test suite
+	* rfc1939.html - pop spec
+	* rfc2060.txt  - imap spec
+	
+	
+

@@ -1,0 +1,6 @@
+cl-smtp (1.0-1) unstable; urgency=low
+
+  * Initial Release (closes: #)
+
+ -- Kevin M. Rosenberg <kmr@debian.org>  Wed,  9 Oct 2002 04:30:08 -0600
+
