@@ -7,7 +7,7 @@
 ;;;; Programmer:    Kevin M. Rosenberg
 ;;;; Date Started:  Sep 2002
 ;;;;
-;;;; $Id: postoffice.asd,v 1.3 2002/10/16 02:10:56 kevin Exp $
+;;;; $Id: postoffice.asd,v 1.4 2002/11/08 16:51:40 kevin Exp $
 ;;;;
 ;;;; This file, part of cl-postoffice, is Copyright (c) 2002 by Kevin M. Rosenberg
 ;;;;
@@ -37,9 +37,3 @@
    (:file "imap" :depends-on ("package")))
   #-allegro :depends-on #-allegro (:acl-compat)
   )
-
-#+(or allegro lispworks cmu openmcl)
-(when (ignore-errors (find-class 'load-compiled-op))
-  (defmethod perform :after ((op load-compiled-op) (c (eql (find-system :postoffice))))
-    (pushnew :postoffice cl:*features*)))
-

@@ -1,3 +1,9 @@
+cl-postoffice (1.8.2-2) unstable; urgency=low
+
+  * Remove 'load-compiled-op from changelog
+
+ -- Kevin M. Rosenberg <kmr@debian.org>  Fri,  8 Nov 2002 09:40:45 -0700
+
 cl-postoffice (1.8.2-1) unstable; urgency=low
 
   * Change call to make-socket to use string rather than numeric ip
