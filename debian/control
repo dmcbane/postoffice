@@ -3,11 +3,11 @@ Section: devel
 Priority: optional
 Maintainer: Kevin M. Rosenberg <kmr@debian.org>
 Build-Depends-Indep: debhelper (>= 4.0.0)
-Standards-Version: 3.5.7.0
+Standards-Version: 3.5.8.0
 
 Package: cl-postoffice
 Architecture: all
-Depends: ${shlibs:Depends}, cl-acl-compat
+Depends: ${shlibs:Depends}, cl-acl-compat, common-lisp-controller (>= 3.47)
 Description: SMTP, POP, & IMAP interface library for Common Lisp Programs
  This is a Franz's open-source Postoffice package which includes 
  libraries for SMTP, POP, and IMAP clients. This package uses the

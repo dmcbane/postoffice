@@ -43,6 +43,7 @@ install: build
 	dh_install debian/postoffice.asd $(shell echo *.lisp) $(clc-postoffice)
 	dh_install postoffice.html $(doc-dir)
 	dh_link $(clc-postoffice)/postoffice.asd $(clc-systems)/postoffice.asd
+	mv ChangeLog changelog
 
 # Build architecture-independent files here.
 binary-indep: build install
@@ -64,7 +65,7 @@ binary-arch: build install
 #	dh_installman
 #	dh_installinfo
 #	dh_undocumented
-	dh_installchangelogs
+	dh_installchangelogs changelog
 	dh_strip
 	dh_compress
 	dh_fixperms
