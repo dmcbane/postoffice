@@ -1,3 +1,10 @@
+cl-postoffice (1.8.2-1) unstable; urgency=low
+
+  * Change call to make-socket to use string rather than numeric ip
+  address for acl-compat compatibility.
+  
+ -- Kevin M. Rosenberg <kmr@debian.org>  Tue, 15 Oct 2002 20:09:29 -0600
+
 cl-postoffice (1.8.1-1) unstable; urgency=low
 
   * Rework dns-query for non-allegro systems

@@ -23,7 +23,7 @@
 ;; Suite 330, Boston, MA  02111-1307  USA
 ;;
 ;;
-;; $Id: smtp.lisp,v 1.3 2002/10/16 01:35:48 kevin Exp $
+;; $Id: smtp.lisp,v 1.4 2002/10/16 02:10:56 kevin Exp $
 
 ;; Description:
 ;;   send mail to an smtp server.  See rfc821 for the spec.
@@ -251,9 +251,9 @@
     (if* (null ipaddr)
        then (error "Can't determine ip addres for mail server ~s" server))
     
-    (setq sock (make-socket :remote-host ipaddr
-				   :remote-port 25  ; smtp
-				   ))
+    (setq sock (make-socket :remote-host #+allegro ipaddr #-allegro server
+			    :remote-port 25  ; smtp
+			    ))
     (unwind-protect
 	(progn
 	  (response-case (sock msg)
