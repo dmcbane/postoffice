@@ -23,7 +23,7 @@
 ;; Suite 330, Boston, MA  02111-1307  USA
 ;;
 ;;
-;; $Id: smtp.lisp,v 1.1 2002/10/09 14:26:11 kevin Exp $
+;; $Id: smtp.lisp,v 1.2 2002/10/09 23:28:41 kevin Exp $
 
 ;; Description:
 ;;   send mail to an smtp server.  See rfc821 for the spec.
@@ -35,15 +35,6 @@
 ;;#-allegro (defvar socket:*dns-mode* :clib)
 
 
-
-(defpackage :net.post-office
-  (:use #:lisp #:excl
-	#+allegro #:socket
-	#-allegro #:acl-socket)
-  (:export 
-   #:send-letter
-   #:send-smtp
-   #:test-email-address))
 
 (in-package :net.post-office)
 

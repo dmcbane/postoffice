@@ -1,4 +1,4 @@
-cl-smtp (1.0-1) unstable; urgency=low
+cl-postoffice (1.0+cvs.2002.10.09-1) unstable; urgency=low
 
   * Initial Release (closes: #)
 

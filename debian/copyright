@@ -6,8 +6,10 @@ It was downloaded from http://opensource.franz.com/smtp/
 Upstream Author(s): Franz, Inc.
 
 Changes compared to upstream version: 
-  Use ACL-COMPAT socket routines
-
+  Use ACL-COMPAT socket routines on non-Allegro implementations
+  Rename .cl file extension to .lisp extension
+  Comment out DNS lookup routines
+  Merge defpackage forms from imap.cl and smtp.cl
 
 Copyright (c) 1986-2000 Franz Inc, Berkeley, CA 
 

@@ -9,7 +9,6 @@ debpkg  := cl-postoffice
 clc-source	:= usr/share/common-lisp/source
 clc-systems	:= usr/share/common-lisp/systems
 clc-postoffice	:= $(clc-source)/$(pkg)
-
 doc-dir		:= usr/share/doc/$(debpkg)
 
 
@@ -42,6 +41,7 @@ install: build
 	# Add here commands to install the package into debian/postoffice.
 	dh_installdirs $(clc-systems) $(clc-postoffice) $(doc-dir)
 	dh_install debian/postoffice.asd $(shell echo *.lisp) $(clc-postoffice)
+	dh_install postoffice.html $(doc-dir)
 	dh_link $(clc-postoffice)/postoffice.asd $(clc-systems)/postoffice.asd
 
 # Build architecture-independent files here.
