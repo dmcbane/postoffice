@@ -19,7 +19,7 @@
 ;; Commercial Software developed at private expense as specified in
 ;; DOD FAR Supplement 52.227-7013 (c) (1) (ii), as applicable.
 ;;
-;; $Id: imap.lisp,v 1.1 2002/10/10 00:12:45 kevin Exp $
+;; $Id: imap.lisp,v 1.2 2003/05/31 13:41:10 kevin Exp $
 
 ;; Description:
 ;;
@@ -1833,7 +1833,7 @@
 (defun get-line-buffer (size)
   ;; get a buffer of at least size bytes
   (setq size (min size (1- array-total-size-limit)))
-  (:without-scheduling
+  (without-scheduling
     (dolist (buff *line-buffers* (make-string size))
 	(if* (>= (length buff) size)
 	   then ; use this one
