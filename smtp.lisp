@@ -23,7 +23,7 @@
 ;; Suite 330, Boston, MA  02111-1307  USA
 ;;
 ;;
-;; $Id: smtp.lisp,v 1.4 2002/10/16 02:10:56 kevin Exp $
+;; $Id$
 
 ;; Description:
 ;;   send mail to an smtp server.  See rfc821 for the spec.

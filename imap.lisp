@@ -19,7 +19,7 @@
 ;; Commercial Software developed at private expense as specified in
 ;; DOD FAR Supplement 52.227-7013 (c) (1) (ii), as applicable.
 ;;
-;; $Id: imap.lisp,v 1.2 2003/05/31 13:41:10 kevin Exp $
+;; $Id$
 
 ;; Description:
 ;;

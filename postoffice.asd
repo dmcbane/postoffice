@@ -7,7 +7,7 @@
 ;;;; Programmer:    Kevin M. Rosenberg
 ;;;; Date Started:  Sep 2002
 ;;;;
-;;;; $Id: postoffice.asd,v 1.1 2003/05/28 21:11:39 kevin Exp $
+;;;; $Id$
 ;;;;
 ;;;; This file, part of cl-postoffice, is Copyright (c) 2002 by Kevin M. Rosenberg
 ;;;;
