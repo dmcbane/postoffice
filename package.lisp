@@ -1,5 +1,7 @@
 (defpackage :net.post-office
-  (:use #:cl #:excl
+  (:use #:cl
+	#-allegro #:acl-compat.excl
+	#+allegro #:excl
 	#-allegro :acl-socket
 	#+allegro :socket
 	#-allegro :acl-compat-mp

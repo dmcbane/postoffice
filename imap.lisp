@@ -227,6 +227,7 @@
        ;; a condition either has a server-string or it has a 
        ;; format-control string
        (format stream "Post Office condition: ~s~%" identifier)
+       #+allegro
        (if* (and (slot-boundp con 'excl::format-control)
 		 (excl::simple-condition-format-control con))
 	  then (apply #'format stream
@@ -1664,7 +1665,9 @@
 (defun kwd-intern (string)
   ;; convert the string to the current preferred case
   ;; and then intern
-  (intern (case excl::*current-case-mode*
+  (intern (case
+	      #-allegro acl-compat.excl::*current-case-mode*
+	      #+allegro excl::*current-case-mode*
 	    ((:case-sensitive-lower
 	      :case-insensitive-lower) (string-downcase string))
 	    (t (string-upcase string)))

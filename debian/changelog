@@ -1,3 +1,9 @@
+cl-postoffice (1.8.2.3-1) unstable; urgency=low
+
+  * Use acl-compat.excl package name
+
+ -- Kevin M. Rosenberg <kmr@debian.org>  Tue, 16 Mar 2004 17:58:40 -0700
+
 cl-postoffice (1.8.2.2-1) unstable; urgency=low
 
   * Fix typo
