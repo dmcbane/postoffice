@@ -19,7 +19,7 @@
 ;; Commercial Software developed at private expense as specified in
 ;; DOD FAR Supplement 52.227-7013 (c) (1) (ii), as applicable.
 ;;
-;; $Id: imap.cl,v 1.1 2002/10/09 14:26:11 kevin Exp $
+;; $Id: imap.lisp,v 1.1 2002/10/10 00:12:45 kevin Exp $
 
 ;; Description:
 ;;
@@ -28,68 +28,6 @@
 ;;- http://www.franz.com/~jkf/coding_standards.html
 ;;-
 
-
-(defpackage :net.post-office
-  (:use :lisp :excl)
-  (:export 
-   #:address-name
-   #:address-additional
-   #:address-mailbox
-   #:address-host
-   
-   #:alter-flags
-   #:close-connection
-   #:close-mailbox
-   #:copy-to-mailbox
-   #:create-mailbox
-   #:delete-letter
-   #:delete-mailbox
-   
-   #:envelope-date
-   #:envelope-subject
-   #:envelope-from
-   #:envelope-sender
-   #:envelope-reply-to
-   #:envelope-to
-   #:envelope-cc
-   #:envelope-bcc
-   #:envelope-in-reply-to
-   #:envelope-message-id
-   
-   #:expunge-mailbox
-   #:fetch-field
-   #:fetch-letter
-   #:fetch-parts
-   #:*imap-version-number*
-   #:make-envelope-from-text
-   #:mailbox-flags      ; accessor
-   #:mailbox-permanent-flags ; acc
-   #:mailbox-list
-   #:mailbox-list-flags
-   #:mailbox-list-separator
-   #:mailbox-list-name
-   #:mailbox-message-count ; accessor
-   #:mailbox-recent-messages ; ac
-   #:mailbox-separator  ; accessor
-   #:mailbox-uidvalidity
-   #:make-imap-connection
-   #:make-pop-connection
-   #:noop
-   #:parse-mail-header
-   #:top-lines	; pop only
-   #:unique-id  ; pop only
-   
-   #:po-condition
-   #:po-condition-identifier
-   #:po-condition-server-string
-   #:po-error
-   
-   #:rename-mailbox
-   #:search-mailbox
-   #:select-mailbox
-   
-   )
-  )
 
 (in-package :net.post-office)
 
@@ -348,7 +286,7 @@
 				       user 
 				       password
 				       (timeout 30))
-  (let* ((sock (socket:make-socket :remote-host host
+  (let* ((sock (make-socket :remote-host host
 				   :remote-port port))
 	 (imap (make-instance 'imap-mailbox
 		 :socket sock
@@ -423,7 +361,7 @@
 				      user
 				      password
 				      (timeout 30))
-  (let* ((sock (socket:make-socket :remote-host host
+  (let* ((sock (make-socket :remote-host host
 				   :remote-port port))
 	 (pop (make-instance 'pop-mailbox
 		:socket sock
@@ -1719,7 +1657,7 @@
 	    
 
 ;  this used to be exported from the excl package
-#+(version>= 6 0)
+#+(and allegro (version>= 6 0))
 (defvar *keyword-package* (find-package :keyword))
 	   
       
@@ -1802,7 +1740,7 @@
 
 	    
 	    (block timeout
-	      (mp:with-timeout ((timeout mailbox)
+	      (with-timeout ((timeout mailbox)
 				(po-error :timeout
 					  :format-control "imap server failed to respond"))
 		;; read up to lf  (lf most likely preceeded by cr)
@@ -1875,7 +1813,7 @@
   (let ((buff (get-line-buffer count))
 	(p (post-office-socket mb))
 	(ind 0))
-    (mp:with-timeout ((timeout mb)
+    (with-timeout ((timeout mb)
 		      (po-error :timeout
 				:format-control "imap server timed out"))
       
@@ -1895,7 +1833,7 @@
 (defun get-line-buffer (size)
   ;; get a buffer of at least size bytes
   (setq size (min size (1- array-total-size-limit)))
-  (mp::without-scheduling
+  (:without-scheduling
     (dolist (buff *line-buffers* (make-string size))
 	(if* (>= (length buff) size)
 	   then ; use this one
@@ -1904,7 +1842,7 @@
 
 
 (defun free-line-buffer (buff)
-  (mp:without-scheduling
+  (without-scheduling
     (push buff *line-buffers*)))
 
 (defun init-line-buffer (new old)

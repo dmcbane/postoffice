@@ -1,0 +1,12 @@
+Document: cl-postoffice
+Title: CL-Postoffice Manual
+Author: Franz, Inc.
+Abstract: This manual describes the
+ use the Post Office Common Lisp library. This library provides
+ client access to SMTP, POP, and IMAP servers from Common Lisp
+ programs.
+Section: programming
+
+Format: HTML
+Index: /usr/share/doc/cl-postoffice/postoffice.html
+Files: /usr/share/doc/cl-postoffice/*.html
