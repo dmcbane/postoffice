@@ -5,7 +5,6 @@ export DH_COMPAT=4
 pkg	:= postoffice
 debpkg  := cl-postoffice
 
-
 clc-source	:= usr/share/common-lisp/source
 clc-systems	:= usr/share/common-lisp/systems
 clc-postoffice	:= $(clc-source)/$(pkg)
@@ -40,7 +39,7 @@ install: build
 	dh_clean -k
 	# Add here commands to install the package into debian/postoffice.
 	dh_installdirs $(clc-systems) $(clc-postoffice) $(doc-dir)
-	dh_install debian/postoffice.asd $(shell echo *.lisp) $(clc-postoffice)
+	dh_install postoffice.asd $(shell echo *.lisp) $(clc-postoffice)
 	dh_install postoffice.html $(doc-dir)
 	dh_link $(clc-postoffice)/postoffice.asd $(clc-systems)/postoffice.asd
 	mv ChangeLog changelog

@@ -1,3 +1,9 @@
+cl-postoffice (1.8.2.1-1) unstable; urgency=low
+
+  * Move .asd file into source distribution
+
+ -- Kevin M. Rosenberg <kmr@debian.org>  Wed, 28 May 2003 15:10:39 -0600
+
 cl-postoffice (1.8.2-2) unstable; urgency=low
 
   * Remove 'load-compiled-op from changelog

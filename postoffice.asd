@@ -7,7 +7,7 @@
 ;;;; Programmer:    Kevin M. Rosenberg
 ;;;; Date Started:  Sep 2002
 ;;;;
-;;;; $Id: postoffice.asd,v 1.4 2002/11/08 16:51:40 kevin Exp $
+;;;; $Id: postoffice.asd,v 1.1 2003/05/28 21:11:39 kevin Exp $
 ;;;;
 ;;;; This file, part of cl-postoffice, is Copyright (c) 2002 by Kevin M. Rosenberg
 ;;;;
@@ -16,10 +16,12 @@
 ;;;; (http://www.gnu.org/licenses/lgpl.html)
 ;;;; *************************************************************************
 
-(in-package :asdf)
+(in-package #:cl-user)
+(defpackage #:postoffice-system (:use #:asdf #:cl))
+(in-package #:postoffice-system)
 
-#+(or allegro lispworks cmu openmcl)
-(defsystem :postoffice
+#+(or allegro lispworks cmu openmcl sbcl)
+(defsystem postoffice
   :name "cl-postoffice"
   :author "Franz, Inc"
   :version "CVS.2002.10.09"
@@ -27,9 +29,6 @@
   :licence "GNU Lesser General Public License"
   :description "Franz's Post Office Package"
   :long-description "Post Office provides an interface to the SMTP, POP, and IMAP servers. It uses the ACL-COMPAT library for use with non-Allegro CL implementations."
-  
-  :perform (load-op :after (op postoffice)
-	    (pushnew :postoffice cl:*features*))
   
   :components
   ((:file "package")
