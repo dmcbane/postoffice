@@ -1,6 +1,6 @@
-cl-postoffice (1.0+cvs.2002.10.09-1) unstable; urgency=low
+cl-postoffice (1.8-1) unstable; urgency=low
 
-  * Initial Release (closes: #)
+  * Initial Release (closes: #163953)
 
  -- Kevin M. Rosenberg <kmr@debian.org>  Wed,  9 Oct 2002 04:30:08 -0600
 
