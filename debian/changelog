@@ -1,3 +1,9 @@
+cl-postoffice (1.8.1-1) unstable; urgency=low
+
+  * Rework dns-query for non-allegro systems
+
+ -- Kevin M. Rosenberg <kmr@debian.org>  Tue, 15 Oct 2002 19:35:17 -0600
+
 cl-postoffice (1.8-1) unstable; urgency=low
 
   * Initial Release (closes: #163953)

@@ -23,7 +23,7 @@
 ;; Suite 330, Boston, MA  02111-1307  USA
 ;;
 ;;
-;; $Id: smtp.lisp,v 1.2 2002/10/09 23:28:41 kevin Exp $
+;; $Id: smtp.lisp,v 1.3 2002/10/16 01:35:48 kevin Exp $
 
 ;; Description:
 ;;   send mail to an smtp server.  See rfc821 for the spec.
@@ -463,17 +463,19 @@
 			(dotted-to-ipaddr name :errorp nil)))
        then ipaddr
        else ; do mx lookup if acldns is being used
-#|
-	    (if* (or (eq *dns-mode* :acldns)
-		     (member :acldns *dns-mode* :test #'eq))
-	       then (let ((res (dns-query name :type :mx)))
-		      (if* (and res (consp res))
-			 then (cadr res) ; the ip address
-			 else (dns-query name :type :a)))
-	       else ; just do a hostname lookup
-|#
-       (ignore-errors (lookup-hostname name)))))
-;; )
+       #+allegro
+       (if* (or (eq *dns-mode* :acldns)
+		(member :acldns *dns-mode* :test #'eq))
+	    then (let ((res (dns-query name :type :mx)))
+		   (if* (and res (consp res))
+			then (cadr res) ; the ip address
+			else (dns-query name :type :a)))
+	    else ; just do a hostname lookup
+	    (ignore-errors (lookup-hostname name)))
+       #-allegro
+       (ignore-errors (lookup-hostname name))
+       ))
+  )
 		    
   
     
