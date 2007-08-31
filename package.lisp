@@ -1,11 +1,11 @@
 (defpackage :net.post-office
   (:use #:cl
-	#-allegro #:acl-compat.excl
-	#+allegro #:excl
-	#-allegro :acl-socket
-	#+allegro :socket
-	#-allegro :acl-compat-mp
-	#+allegro :mp)
+        #-allegro #:acl-compat.excl
+        #+allegro #:excl
+        #-allegro :acl-socket
+        #+allegro :socket
+        #-allegro :acl-compat-mp
+        #+allegro :mp)
   (:export
    ;; From smtp.lisp
    #:send-letter
@@ -13,12 +13,12 @@
    #:test-email-address
 
    ;; From imap.lisp
-   
+
    #:address-name
    #:address-additional
    #:address-mailbox
    #:address-host
-   
+
    #:alter-flags
    #:close-connection
    #:close-mailbox
@@ -26,7 +26,7 @@
    #:create-mailbox
    #:delete-letter
    #:delete-mailbox
-   
+
    #:envelope-date
    #:envelope-subject
    #:envelope-from
@@ -37,7 +37,7 @@
    #:envelope-bcc
    #:envelope-in-reply-to
    #:envelope-message-id
-   
+
    #:expunge-mailbox
    #:fetch-field
    #:fetch-letter
@@ -58,16 +58,16 @@
    #:make-pop-connection
    #:noop
    #:parse-mail-header
-   #:top-lines	; pop only
+   #:top-lines  ; pop only
    #:unique-id  ; pop only
-   
+
    #:po-condition
    #:po-condition-identifier
    #:po-condition-server-string
    #:po-error
-   
+
    #:rename-mailbox
    #:search-mailbox
    #:select-mailbox
-   
+
    ))
