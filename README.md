@@ -1,6 +1,8 @@
 # postoffice
 
-Mirror of the Official Repository at http://git.kpe.io/postoffice.git/
+Mirror of Kevin M. Rosenberg's <kmr@debian.org> Official Repository at http://git.kpe.io/postoffice.git/
+
+This file is a conversion of the postoffice.html file to markdown.
 
 # Allegro CL imap and pop interface
 
